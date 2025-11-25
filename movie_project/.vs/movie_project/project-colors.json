@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0fe9e676-c857-4200-98ac-bcadc3f9bb7d": {
+      "ProjectGuid": "0fe9e676-c857-4200-98ac-bcadc3f9bb7d",
+      "DisplayName": "movie_project",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
