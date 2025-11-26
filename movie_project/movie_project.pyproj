@@ -37,6 +37,16 @@
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="Movie\apps.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Movie\models.py" />
+    <Compile Include="Movie\tests.py" />
+    <Compile Include="Movie\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Movie\views.py" />
+    <Compile Include="Movie\__init__.py" />
     <Compile Include="movie_project\__init__.py" />
     <Compile Include="movie_project\settings.py" />
     <Compile Include="movie_project\urls.py" />
@@ -52,9 +62,13 @@
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="Movie\" />
+    <Folder Include="Movie\templates\" />
+    <Folder Include="Movie\templates\Movie\" />
     <Folder Include="movie_project\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Movie\templates\Movie\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
