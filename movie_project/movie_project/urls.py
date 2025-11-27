@@ -26,5 +26,7 @@ urlpatterns = [
          name='login'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls), 
-    re_path(r'^Movie/',include('Movie.urls'))
+    re_path(r'^Movie/',include('Movie.urls')),
+    re_path(r'^Users',include('Users.urls')),
+    re_path(r'^Recommendations',include('Recommendations.urls'))
 ]

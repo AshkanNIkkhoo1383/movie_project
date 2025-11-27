@@ -32,7 +32,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'app',
     # Add your apps here to enable them 
-    'Movie.apps.MovieConfig',
+    'Movie.apps.MovieConfig', 
+    'Users.apps.UsersConfig', 
+    'Recommendations.apps.RecommendationsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
