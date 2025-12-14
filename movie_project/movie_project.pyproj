@@ -53,6 +53,9 @@
     <Compile Include="movie_project\wsgi.py" />
     <Compile Include="Recommendations\admin.py" />
     <Compile Include="Recommendations\apps.py" />
+    <Compile Include="Recommendations\function.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Recommendations\migrations\__init__.py" />
     <Compile Include="Recommendations\models.py" />
     <Compile Include="Recommendations\tests.py" />
@@ -63,6 +66,9 @@
     <Compile Include="Recommendations\__init__.py" />
     <Compile Include="Users\admin.py" />
     <Compile Include="Users\apps.py" />
+    <Compile Include="Users\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Users\migrations\__init__.py" />
     <Compile Include="Users\models.py" />
     <Compile Include="Users\tests.py" />
@@ -83,6 +89,9 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="Media\imagegallery\" />
+    <Folder Include="Media\avatars\" />
+    <Folder Include="Media\Movieavatars\" />
+    <Folder Include="Media\Actoravatars\" />
     <Folder Include="Media\songs\" />
     <Folder Include="Media\trailers\" />
     <Folder Include="Movie\" />
@@ -100,9 +109,13 @@
     <Folder Include="Users\templates\Users\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Movie\templates\actorordirectordetail.html" />
     <Content Include="Movie\templates\home.html" />
+    <Content Include="Movie\templates\moviedetail.html" />
+    <Content Include="Movie\templates\movies_by_genre.html" />
     <Content Include="Movie\templates\Movie\index.html" />
     <Content Include="Movie\templates\search.html" />
+    <Content Include="Recommendations\templates\recommendations.html" />
     <Content Include="Recommendations\templates\Recommendations\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
@@ -134,6 +147,9 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="Users\templates\login.html" />
+    <Content Include="Users\templates\profile.html" />
+    <Content Include="Users\templates\register.html" />
     <Content Include="Users\templates\Users\index.html" />
   </ItemGroup>
   <ItemGroup>

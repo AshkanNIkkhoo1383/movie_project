@@ -2,9 +2,9 @@ import django
 from django.utils import timezone
 from django.db import models
 from django.db.models.fields import TextField 
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator 
+from django.conf import settings
 import uuid 
-
 
 class Director(models.Model):
     GENDER_CHOICES = [
@@ -29,7 +29,7 @@ class Actor(models.Model):
     FirstName = models.CharField(max_length=200,null=True, blank=True) 
     LastName = models.CharField(max_length=200,null=True, blank=True) 
     Biography = models.TextField(blank=True) 
-    Picture = models.BinaryField(blank=True,null=True) 
+    Picture = models.ImageField(upload_to='Actoravatars/',blank=True,null=True) 
     Birth_date = models.DateField(null=True, blank=True) 
     Gender = models.CharField(max_length=1,choices=GENDER_CHOICES,blank=True) 
     def __str__(self):
@@ -45,7 +45,7 @@ class Movie(models.Model):
     Genre = models.CharField(max_length=2,choices=GENRE_CHOICES,blank=True)
     Description = models.TextField(blank=True) 
     IMDBscore = models.FloatField(default=0,validators=[MinValueValidator(0),MaxValueValidator(10)])
-    Poster = models.BinaryField(blank=True,null=True) 
+    Poster = models.ImageField(upload_to='Movieavatars/',blank=True,null=True) 
     Trailer = models.FileField(upload_to="trailers/", null=True, blank=True)
     MovieActor = models.ManyToManyField(Actor,through='MovieActor') 
     MovieDirector = models.ForeignKey(Director,on_delete=models.CASCADE,related_name='Movies')
@@ -84,5 +84,13 @@ class ImageGallery(models.Model):
     Image_id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False) 
     ImageFile = models.FileField(upload_to="imagegallery/",null=True,blank=True) 
     Movie = models.ForeignKey(Movie,on_delete=models.CASCADE,related_name='imagegallery') 
-
-
+class Comment(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name="comments")
+    movie = models.ForeignKey(Movie,on_delete=models.CASCADE,related_name="comments")
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ["-created_at"]
+    def __str__(self):
+        return f"Comment by {self.user.username} on {self.movie.title}"
